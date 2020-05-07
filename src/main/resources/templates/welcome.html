@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/assetsWelcome/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" type="text/css" th:href="@{/assetsWelcome/fonts/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assetsWelcome/fonts/ionicons.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assetsWelcome/css/Features-Boxed.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assetsWelcome/css/Footer-Basic.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assetsWelcome/css/Header-Blue.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assetsWelcome/css/styles.css}">
+</head>
+
+<body>
+    <div class="header-bg" >
+        <div class="header-blue" >
+            <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+                <div class="container-fluid"><a class="navbar-brand" href="#">SneakerFinder</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse"
+                        id="navcol-1">
+                        <ul class="nav navbar-nav"></ul>
+                        <form class="form-inline mr-auto" target="_self">
+                            <div class="form-group"><label></label></div>
+                        </form><span class="navbar-text"> </span><a class="btn btn-light action-button" role="button" th:href="@{/shoeForm}" >Szukaj</a></div>
+                </div>
+            </nav>
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1" style="color: black;">
+                        <h1>Nie trać czasu !</h1>
+                        <p>Podaj nam marke oraz konkretny jej model a my przeszukamy dla Ciebie najpopularniejsze sklepy ze Sneakersami w Polsce !</p>
+                        <a th:href="@{/shoeForm}"><button class="btn btn-light btn-lg action-button" type="button">Zacznij szukać !</button></a>
+                        <button class="btn btn-light btn-lg action-button highlight-button" type="button">Jak to działa ?</button>
+                    </div>
+                    <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
+                        <div class="shoe-img">
+                            <img class="shoe" th:src="@{/assetsWelcome/img/fashion.svg}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="features-boxed">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center highlight">Jak to działa?&nbsp;</h2>
+            </div>
+            <div class="row justify-content-center features">
+
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-list-alt icon"></i>
+                        <h3 class="name">Dane</h3>
+                        <p class="description">Potrzebne nam są dokładne dane dotyczące butów. Im dokładniejsze dane tym szybciej uda nam się je dla Ciebie znaleźć.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-clock-o icon"></i>
+                        <h3 class="name">Czas</h3>
+                        <p class="description">Kiedy już twoje preferencje do nas dotrą poprosimy najpopularniejsze strony z butami w Polsce aby pomogły je dla Ciebie znaleźć. Abyś nie usnął, postartamy się negocjować maksymalnie 10 sekund...</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-plane icon"></i>
+                        <h3 class="name">Rezultat</h3>
+                        <p class="description">Po udanych negocjacjach ze sklepami, dostajemy od nich wszystkie niezbędne informacje oraz przedstawiamy je Tobie natychmiastowo !&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic footer-bg">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">SneakerFinder © 2020</p>
+        </footer>
+    </div>
+    <
+    <script th:src="@{/assetsWelcome/js/jquery.min.js}"></script>
+    <script th:src="@{/assetsWelcome/js/slide.js}"></script>
+    <script th:src="@{/assetsWelcome/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

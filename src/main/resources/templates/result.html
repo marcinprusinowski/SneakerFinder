@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{assetsResult/css/resultPageStyle.css}" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header-container">
+        <a class="back-to" th:href="@{/}">Strona Główna</a>
+        <a class="back-to" th:href="@{/shoeForm}">Szukaj jeszcze raz</a>
+    </div>
+
+<div class="container">
+    <div  th:if="${!shoeList.empty}" th:each="shoe: ${shoeList}" >
+        <a class="item"  th:href="${shoe.link}" target="_blank" >
+            <img th:class="img" th:src="${shoe.imageLink}"  th:alt="${shoe.name}">
+            <p class="name" th:text="${shoe.name}" ></p>
+            <p class="price" th:text="${shoe.price}"  > PLN</p>
+            <ul class="size">
+                <li class="size-item" th:each="size: ${shoe.sizes}" th:text="${size}"></li>
+            </ul>
+        </a>
+    </div>
+
+    <div th:unless="${!shoeList.empty}" class="no-result">
+        <p>Sorry, we can't find what you are looking for.</p>
+        <p>Try once again and be more specific!</p>
+        <img th:src="@{https://media.giphy.com/media/26ybwvTX4DTkwst6U/giphy.gif}">
+    </div>
+</div>
+</body>
+</html>

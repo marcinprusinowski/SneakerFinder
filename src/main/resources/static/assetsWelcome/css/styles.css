@@ -1,0 +1,9 @@
+.shoe{
+   transform: scale(.75);
+}
+.header-bg , .footer-bg {
+    background-color: #fdfdfd;
+}
+.btn{
+    border: 1px solid black;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" th:href="@{/assetsShoeForm/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assetsShoeForm/css/Contact-Form-Clean.css}">
+    <link rel="stylesheet" th:href="@{/assetsShoeForm/css/Navigation-Clean.css}">
+    <link rel="stylesheet" th:href="@{/assetsShoeForm/css/styles.css}">
+</head>
+
+<body>
+<div id="container">
+
+
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+        <div class="container"><a class="navbar-brand" th:href="@{/}">SneakerFinder</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/}">Strona Główna</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="contact-clean" style="background-color: rgb(255,255,255);">
+        <form id="shoe-form" th:action="@{/send}" th:object="${preferences}" method="post">
+            <h2 class="text-center">Twoje Preferencje</h2>
+            <div class="form-group">
+                <input class="form-control " id="brand"  type="text" name="brand" placeholder="Brand" th:field="*{brand}">
+            </div>
+            <div class="form-group">
+                <input class="form-control " id="model" type="text" name="model" placeholder="Model" th:field="*{model}">
+            </div>
+            <label id="error-info" class="error not-active">Wszystkie pola są wyamgane</label>
+            <div class="form-group">
+                <button class="btn btn-primary" type="button">Szukaj </button>
+            </div>
+        </form>
+    </div>
+</div>
+    <div class="loading-screen not-active">
+        <div class="loading-container">
+            <h1>Loading...</h1>
+            <p>Ładowanie może potrfać maksymalnie 10 sekund...</p>
+            <img src="https://media.giphy.com/media/A6TnyhFIUwZCo/giphy.gif" >
+        </div>
+
+    </div>
+    <script src="assetsShoeForm/js/jquery.min.js"></script>
+    <script src="assetsShoeForm/js/validation.js"></script>
+    <script src="assetsShoeForm/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

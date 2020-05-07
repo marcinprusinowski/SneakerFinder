@@ -1,0 +1,28 @@
+#container{
+    z-index: -1;
+}
+.error{
+    display: inline-block;
+    color: red;
+}
+.not-active{
+    display: none;
+}
+.loading-screen{
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    background-color: white;
+}
+.loading-screen img{
+    width: 480px;
+    height: 402px;
+}
+.loading-container{
+    margin-top: 7%;
+}
+
