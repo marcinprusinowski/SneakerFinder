@@ -64,7 +64,7 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>3.0.2</version>
                 <configuration>
-                    <appName>mysterious-crag-69658</appName>
+                    <appName>radiant-caverns-52229</appName>
                     <processTypes>
                         <web>java $JAVA_OPTS -cp target/classes:target/dependency/* ThymleafShoefinderApplication</web>
                     </processTypes>
