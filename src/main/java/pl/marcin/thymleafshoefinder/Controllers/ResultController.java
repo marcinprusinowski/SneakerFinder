@@ -54,4 +54,7 @@ public class ResultController {
         });
         executorService.shutdown();
     }
+    public void removeAll(){
+        shoeList.removeAll(shoeList);
+    }
 }

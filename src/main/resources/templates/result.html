@@ -18,9 +18,6 @@
             <img th:class="img" th:src="${shoe.imageLink}"  th:alt="${shoe.name}">
             <p class="name" th:text="${shoe.name}" ></p>
             <p class="price" th:text="${shoe.price}"  > PLN</p>
-            <ul class="size">
-                <li class="size-item" th:each="size: ${shoe.sizes}" th:text="${size}"></li>
-            </ul>
         </a>
     </div>
 
