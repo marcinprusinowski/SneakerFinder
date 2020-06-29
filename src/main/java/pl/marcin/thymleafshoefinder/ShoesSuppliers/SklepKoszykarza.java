@@ -47,7 +47,7 @@ public class SklepKoszykarza implements Parsable {
             String link = shoeDataProvider.getLink(element,"div.product a" ,"href");
             String linkImage = shoeDataProvider.getImageLink(element,"div.product a img" , "data-echo");
             String price = getPrice(element);
-            List<String> sizes = shoeDataProvider.getSizes(element, ".sizes ul li");
+            List<String> sizes = shoeDataProvider.getSizes(element, ".sizes ul li span");
             Shoe shoe = new Shoe()
                     .withName(name)
                     .withLink(link)

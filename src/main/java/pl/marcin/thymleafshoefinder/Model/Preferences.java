@@ -8,13 +8,23 @@ public class Preferences {
     private String brand;
     @NotNull
     private String model;
+    private int size ;
 
     public Preferences(String brand, String model, int size) {
         this.brand = brand;
         this.model = model;
+        this.size = size;
     }
 
     public Preferences() {
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public String getBrand() {

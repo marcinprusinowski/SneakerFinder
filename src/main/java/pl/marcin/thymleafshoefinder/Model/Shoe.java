@@ -3,10 +3,10 @@ package pl.marcin.thymleafshoefinder.Model;
 import java.util.List;
 
 public class Shoe {
-        private  String name;
-        private  String link;
-        private  String imageLink;
-        private  String price;
+        private String name;
+        private String link;
+        private String imageLink;
+        private String price;
         private List<String> sizes;
 
 

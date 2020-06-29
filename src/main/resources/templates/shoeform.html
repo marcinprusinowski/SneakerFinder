@@ -34,6 +34,9 @@
             <div class="form-group">
                 <input class="form-control " id="model" type="text" name="model" placeholder="Model" th:field="*{model}">
             </div>
+            <div class="form-group">
+                <input class="form-control" min="36" max="48" id="size" type="number" name="size"  placeholder="Size" th:field="*{size}">
+            </div>
             <label id="error-info" class="error not-active">Wszystkie pola są wyamgane</label>
             <div class="form-group">
                 <button class="btn btn-primary" type="button">Szukaj </button>

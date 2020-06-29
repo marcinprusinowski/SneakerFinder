@@ -13,11 +13,14 @@
     </div>
 
 <div class="container">
-    <div  th:if="${!shoeList.empty}" th:each="shoe: ${shoeList}" >
+    <div  th:if="${!shoeList.empty}"  th:each="shoe: ${shoeList}" >
         <a class="item"  th:href="${shoe.link}" target="_blank" >
             <img th:class="img" th:src="${shoe.imageLink}"  th:alt="${shoe.name}">
             <p class="name" th:text="${shoe.name}" ></p>
             <p class="price" th:text="${shoe.price}"  > PLN</p>
+            <ul>
+                <li th:each="size: ${shoe.sizes}" th:if="${size} == ${wantedSize}" th:text="${size}" ></li>
+            </ul>
         </a>
     </div>
 

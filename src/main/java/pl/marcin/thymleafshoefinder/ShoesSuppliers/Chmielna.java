@@ -45,7 +45,7 @@ public class Chmielna implements Parsable {
             String link = shoeDataProvider.getLink(element,"a" ,"href");
             String linkImage = shoeDataProvider.getImageLink(element,"a img" , "data-echo");
             String price = shoeDataProvider.getPrice(element,".products__item-price .price__tag");
-            List<String> sizes = shoeDataProvider.getSizes(element,".sizes ul li");
+            List<String> sizes = shoeDataProvider.getSizes(element,".sizes ul li span");
 
             Shoe shoe = new Shoe()
                     .withName(name)

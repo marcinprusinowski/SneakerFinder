@@ -45,7 +45,7 @@ public class StreetSupply implements Parsable {
         String name = shoeDataProvider.getName(element , ".product-name");
         if (shoeDataProvider.isNameCorrect(name,preferences)){
             String link = getLink(element);
-            String linkImage = shoeDataProvider.getImageLink(element, ".product-image img" , "src");
+            String linkImage = getImageLink(element);
             String price = getPrice(element);
 
             Shoe shoe = new Shoe()
@@ -57,6 +57,10 @@ public class StreetSupply implements Parsable {
 
             shoeList.add(shoe);
         }
+    }
+
+    private String getImageLink(Element element ) {
+        return "https://image.flaticon.com/icons/png/512/95/95019.png";
     }
 
 

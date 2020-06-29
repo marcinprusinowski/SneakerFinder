@@ -47,7 +47,7 @@ public class RunColors implements Parsable {
             String link = getLink(element);
             String linkImage = shoeDataProvider.getImageLink(element, ".pList__picture img" , "src");
             String price = getPrice(element);
-            List<String> sizes = shoeDataProvider.getSizes(element , ".pList__item_big__variants div");
+            List<String> sizes = shoeDataProvider.getSizes(element , ".pList__item_big__variants--item");
             Shoe shoe = new Shoe()
                     .withName(name)
                     .withLink(link)
