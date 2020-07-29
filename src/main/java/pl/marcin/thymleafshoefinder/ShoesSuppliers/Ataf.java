@@ -25,7 +25,7 @@ public class Ataf implements Parsable {
         this.reentrantLock = reentrantLock;
     }
 
-    public void parseForShoes(){
+    public List<Element> parseForShoes(){
         ShoeDataProvider shoeDataProvider= new ShoeDataProvider();
         this.document = Parsable.assignDocument( SneakerShop.ATAF,preferences);
         List<Element> elements = this.document.select("div.no-pad");
@@ -36,6 +36,7 @@ public class Ataf implements Parsable {
                 reentrantLock.unlock();
             });
         }
+        return elements;
     }
 
     private void addShoeIfExists(ShoeDataProvider shoeDataProvider, Element element) {

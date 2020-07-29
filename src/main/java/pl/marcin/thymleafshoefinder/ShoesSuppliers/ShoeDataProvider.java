@@ -28,22 +28,15 @@ public class ShoeDataProvider {
     }
 
     public String getImageLink(Element element , String cssQuery , String attribute){
-        String imageLink  ="" ;
-        imageLink = element.select(cssQuery).attr(attribute);
-        return imageLink;
-
+        return element.select(cssQuery).attr(attribute);
     }
 
     public String getLink(Element element , String cssQuery , String attribute){
-        String link = "";
-        link = element.select(cssQuery).attr(attribute);
-        return link;
+        return element.select(cssQuery).attr(attribute);
     }
 
     public String getName(Element element, String cssQuery){
-        String name = "";
-        name = element.select(cssQuery).text();
-        return name;
+        return element.select(cssQuery).text();
     }
 
     public List<String> getSizes(Element element, String cssQuery){

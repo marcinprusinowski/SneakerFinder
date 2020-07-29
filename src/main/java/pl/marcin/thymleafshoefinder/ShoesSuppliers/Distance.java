@@ -25,7 +25,7 @@ public class Distance implements Parsable {
         this.reentrantLock = reentrantLock;
     }
 
-    public void parseForShoes(){
+    public List<Element> parseForShoes(){
         ShoeDataProvider shoeDataProvider = new ShoeDataProvider();
         this.document = Parsable.assignDocument( SneakerShop.DISTANCE,preferences);
         List<Element> elements = document.select(".product-item");
@@ -36,7 +36,7 @@ public class Distance implements Parsable {
                 reentrantLock.unlock();
             });
         }
-
+        return elements;
     }
 
     private void addShoeIfExists(ShoeDataProvider shoeDataProvider, Element element) {
@@ -45,7 +45,7 @@ public class Distance implements Parsable {
             String link = shoeDataProvider.getLink(element,"a.product-item-link","href");
             String linkImage = shoeDataProvider.getImageLink(element,"img.product-image-photo","data-original");
             String price = shoeDataProvider.getPrice(element, "span.price");
-            List<String> sizes =shoeDataProvider.getSizes(element , ".size div a div");
+            List<String> sizes =shoeDataProvider.getSizes(element , ".swatch-option .swatch-follow .text");
             Shoe shoe = new Shoe()
                     .withName(name)
                     .withLink(link)

@@ -18,6 +18,9 @@ public class WorldBox implements Parsable {
     private ExecutorService executorService ;
     private ReentrantLock reentrantLock;
 
+    public WorldBox() {
+    }
+
     public WorldBox(List<Shoe> shoeList, Preferences preferences, ExecutorService executorService, ReentrantLock reentrantLock) {
         this.shoeList = shoeList;
         this.preferences = preferences;
@@ -25,7 +28,7 @@ public class WorldBox implements Parsable {
         this.reentrantLock = reentrantLock;
     }
 
-    public void parseForShoes(){
+    public List<Element> parseForShoes(){
         ShoeDataProvider shoeDataProvider = new ShoeDataProvider();
         this.document = Parsable.assignDocument(SneakerShop.WORLDBOX , preferences);
         List<Element> elements = document.select("div.product");
@@ -37,7 +40,7 @@ public class WorldBox implements Parsable {
                 reentrantLock.unlock();
             });
         }
-
+        return elements;
     }
 
     private void addShoeIfExists(ShoeDataProvider shoeDataProvider, Element element) {
@@ -60,16 +63,16 @@ public class WorldBox implements Parsable {
     }
 
 
-    private String getPrice(Element element) {
+    public String getPrice(Element element) {
         String pprice ="";
         String dprice ="";
         dprice  = element.select(".single-price-tag").text();
         pprice  = element.select(".dp").text();
 
         if (pprice.isEmpty()){
-            return dprice + " PLN";
+            return dprice;
         }
 
-        return pprice + " PLN";
+        return pprice ;
     }
 }

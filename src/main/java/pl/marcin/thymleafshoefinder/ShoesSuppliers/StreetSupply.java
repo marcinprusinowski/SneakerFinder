@@ -19,6 +19,9 @@ public class StreetSupply implements Parsable {
     private ExecutorService executorService ;
     private ReentrantLock reentrantLock;
 
+    public StreetSupply() {
+    }
+
     public StreetSupply(List<Shoe> shoeList, Preferences preferences, ExecutorService executorService, ReentrantLock reentrantLock) {
         this.shoeList = shoeList;
         this.preferences = preferences;
@@ -26,7 +29,7 @@ public class StreetSupply implements Parsable {
         this.reentrantLock = reentrantLock;
     }
 
-    public void parseForShoes(){
+    public List<Element> parseForShoes(){
         ShoeDataProvider shoeDataProvider = new ShoeDataProvider();
         this.document = Parsable.assignDocument(SneakerShop.STREETSUPLY , preferences);
         List<Element> elements = document.select("div.col-sm-6");
@@ -38,7 +41,7 @@ public class StreetSupply implements Parsable {
                 reentrantLock.unlock();
             });
         }
-
+        return elements;
     }
 
     private void addShoeIfExists(ShoeDataProvider shoeDataProvider, Element element) {
@@ -64,13 +67,13 @@ public class StreetSupply implements Parsable {
     }
 
 
-    private String getPrice(Element element) {
+    public String getPrice(Element element) {
         String price ="";
         price  = element.select(".product-price span").first().text();
-        return price;
+        return price.replace("zł" ," PLN");
     }
 
-    private String getLink(Element element) {
+    public String getLink(Element element) {
         String link = "https://streetsupply.pl/";
         link += element.select("a").attr("href");
         return link;

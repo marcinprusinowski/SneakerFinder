@@ -19,7 +19,7 @@
             <p class="name" th:text="${shoe.name}" ></p>
             <p class="price" th:text="${shoe.price}"  > PLN</p>
             <ul>
-                <li th:each="size: ${shoe.sizes}" th:if="${size} == ${wantedSize}" th:text="${size}" ></li>
+                <li th:each="size: ${shoe.sizes}"  th:text="${size}" ></li>
             </ul>
         </a>
     </div>

@@ -1,20 +1,22 @@
 package pl.marcin.thymleafshoefinder.Interfacess;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import pl.marcin.thymleafshoefinder.Links.LinkBuilder;
 import pl.marcin.thymleafshoefinder.Links.SneakerShop;
 import pl.marcin.thymleafshoefinder.Model.Preferences;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface Parsable {
 
-    void parseForShoes();
+    List<Element> parseForShoes();
 
     static  Document assignDocument(SneakerShop sneakerShop, Preferences preferences) {
         Document document = new Document("");
         try {
-            document = Jsoup.connect(Parsable.getUrl(sneakerShop,preferences)).timeout(10000).get();
+            document = Jsoup.connect(Parsable.getUrl(sneakerShop,preferences)).get();
         } catch (IOException e) {
             e.printStackTrace();
         }

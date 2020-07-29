@@ -22,11 +22,12 @@ public class WebController {
     public ModelAndView getPreferences( @ModelAttribute Preferences preferences){
         ResultController rc = new ResultController(preferences);
         List<Shoe> shoeList = List.copyOf(rc.getShoeList());
+        ResultHandler rh = new ResultHandler(shoeList ,preferences);
+        shoeList = rh.handle();
         rc.removeAll();
         ModelAndView modelAndView = new ModelAndView("result");
         if (shoeList == null) { shoeList = new ArrayList<>(); }
         modelAndView.addObject("shoeList" ,  shoeList);
-        modelAndView.addObject("wantedSize" , String.valueOf(preferences.getSize()) );
         return modelAndView;
     }
 

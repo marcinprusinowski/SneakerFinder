@@ -72,8 +72,7 @@ public class Shoe {
                 ", link='" + link + '\'' +
                 ", imageLink='" + imageLink + '\'' +
                 ", price='" + price + '\'' +
+                ", sizes=" + sizes +
                 '}';
     }
-
-
 }

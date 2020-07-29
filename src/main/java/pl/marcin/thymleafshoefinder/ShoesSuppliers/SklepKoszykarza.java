@@ -19,6 +19,9 @@ public class SklepKoszykarza implements Parsable {
     private ExecutorService executorService ;
     private ReentrantLock reentrantLock;
 
+    public SklepKoszykarza() {
+    }
+
     public SklepKoszykarza(List<Shoe> shoeList, Preferences preferences, ExecutorService executorService, ReentrantLock reentrantLock) {
         this.shoeList = shoeList;
         this.preferences = preferences;
@@ -26,7 +29,7 @@ public class SklepKoszykarza implements Parsable {
         this.reentrantLock = reentrantLock;
     }
 
-    public void parseForShoes(){
+    public List<Element> parseForShoes(){
         ShoeDataProvider shoeDataProvider = new ShoeDataProvider();
         this.document = Parsable.assignDocument(SneakerShop.SKLEPKOSZYKARZA, preferences);
         List<Element> elements = document.select("div.product");
@@ -38,7 +41,7 @@ public class SklepKoszykarza implements Parsable {
                 reentrantLock.unlock();
             });
         }
-
+        return elements;
     }
 
     private void addShoeIfExists(ShoeDataProvider shoeDataProvider, Element element) {
@@ -62,14 +65,14 @@ public class SklepKoszykarza implements Parsable {
     }
 
 
-    private String getPrice(Element element) {
+    public String getPrice(Element element) {
         String newPrice ="";
         String normalPrice ="";
         newPrice  = element.select(".pp").text();
         normalPrice  = element.select(".pricebox").text();
         if (newPrice.isEmpty()){
-            return normalPrice + " PLN";
+            return normalPrice;
         }
-        return newPrice + " PLN";
+        return newPrice;
     }
 }

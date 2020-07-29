@@ -19,6 +19,9 @@ public class SneakerStudio implements Parsable {
     private ExecutorService executorService ;
     private ReentrantLock reentrantLock;
 
+    public SneakerStudio() {
+    }
+
     public SneakerStudio(List<Shoe> shoeList, Preferences preferences, ExecutorService executorService, ReentrantLock reentrantLock) {
         this.shoeList = shoeList;
         this.preferences = preferences;
@@ -26,7 +29,7 @@ public class SneakerStudio implements Parsable {
         this.reentrantLock = reentrantLock;
     }
 
-    public void parseForShoes(){
+    public List<Element> parseForShoes(){
         ShoeDataProvider shoeDataProvider = new ShoeDataProvider();
         this.document = Parsable.assignDocument(SneakerShop.SNEAKERSTUDIO , preferences);
         List<Element> elements = this.document.select("div.product_wrapper");
@@ -38,7 +41,7 @@ public class SneakerStudio implements Parsable {
                 reentrantLock.unlock();
             });
         }
-
+        return elements;
     }
 
     private void addShoeIfExists(ShoeDataProvider shoeDataProvider, Element element) {
@@ -61,13 +64,13 @@ public class SneakerStudio implements Parsable {
     }
 
 
-    private String getImageLink(Element element) {
+    public String getImageLink(Element element) {
         String imageLink ="https://sneakerstudio.pl/";
         imageLink += element.select(".product_icon_item img").attr("data-lazy");
         return imageLink;
     }
 
-    private String getLink(Element element) {
+    public String getLink(Element element) {
         String link = "https://sneakerstudio.pl/";
         link += element.select("a.product_icon_item").attr("href");
         return link;

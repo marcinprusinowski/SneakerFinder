@@ -18,6 +18,7 @@ public class Chmielna implements Parsable {
     private ExecutorService executorService ;
     private ReentrantLock reentrantLock;
 
+
     public Chmielna(List<Shoe> shoeList, Preferences preferences, ExecutorService executorService, ReentrantLock reentrantLock) {
         this.shoeList = shoeList;
         this.preferences = preferences;
@@ -25,7 +26,7 @@ public class Chmielna implements Parsable {
         this.reentrantLock = reentrantLock;
     }
 
-    public void parseForShoes(){
+    public List<Element> parseForShoes(){
         ShoeDataProvider shoeDataProvider = new ShoeDataProvider();
         this.document = Parsable.assignDocument( SneakerShop.CHMIELNA,preferences);
         List<Element> elements = document.select(".products__item");
@@ -36,7 +37,7 @@ public class Chmielna implements Parsable {
                 reentrantLock.unlock();
             });
         }
-
+        return elements;
     }
 
     private void addShoeIfExists(ShoeDataProvider shoeDataProvider, Element element) {
@@ -54,8 +55,9 @@ public class Chmielna implements Parsable {
                     .withPrice(price)
                     .withSizes(sizes)
                     .build();
-
             shoeList.add(shoe);
+            System.out.println(shoeList);
+
         }
     }
 

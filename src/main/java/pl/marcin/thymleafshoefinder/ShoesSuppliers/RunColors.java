@@ -18,6 +18,9 @@ public class RunColors implements Parsable {
     private ExecutorService executorService ;
     private ReentrantLock reentrantLock;
 
+    public RunColors() {
+    }
+
     public RunColors(List<Shoe> shoeList, Preferences preferences, ExecutorService executorService, ReentrantLock reentrantLock) {
         this.shoeList = shoeList;
         this.preferences = preferences;
@@ -25,7 +28,7 @@ public class RunColors implements Parsable {
         this.reentrantLock = reentrantLock;
     }
 
-    public void parseForShoes(){
+    public List<Element> parseForShoes(){
         ShoeDataProvider shoeDataProvider = new ShoeDataProvider();
         this.document = Parsable.assignDocument( SneakerShop.RUNCOLORS,preferences);
         List<Element> elements =document.select(".pList__item");
@@ -37,7 +40,7 @@ public class RunColors implements Parsable {
                 reentrantLock.unlock();
             });
         }
-
+        return elements;
     }
 
     private void addShoeIfExists(ShoeDataProvider shoeDataProvider, Element element) {
@@ -60,17 +63,17 @@ public class RunColors implements Parsable {
         }
     }
 
-    private String getPrice(Element element) {
+    public String getPrice(Element element) {
         String normalPrice ="";
         String newPrice ="";
         normalPrice  = element.select(".pList__price").text();
         newPrice  = element.select(".pList__price em").text();
         if (newPrice.isEmpty()){
-            return normalPrice + " PLN";
+            return normalPrice.replace("zł" ,"PLN");
         }
-        return newPrice + " PLN";
+        return newPrice.replace("zł" , "PLN");
     }
-    private String getLink(Element element ){
+    public String getLink(Element element){
         String link = "https://runcolors.pl";
         link += element.select(".pList__item_hover a").attr("href");
         return link;

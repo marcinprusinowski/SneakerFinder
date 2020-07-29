@@ -1,6 +1,6 @@
 package pl.marcin.thymleafshoefinder.Links;
 
-public enum SneakerShop {
+public enum SneakerShop  {
     ATAF("https://ataf.pl/szukaj?s="),
     CHMIELNA("https://chmielna20.pl/products/"),
     DISTANCE("https://distance.pl/catalogsearch/result/index/?q="),
@@ -8,7 +8,8 @@ public enum SneakerShop {
     SKLEPKOSZYKARZA("https://sklepkoszykarza.pl/products/"),
     SNEAKERSTUDIO("https://sneakerstudio.pl/search.php?text="),
     STREETSUPLY("https://streetsupply.pl/sklep?query="),
-    WORLDBOX("https://worldbox.pl/products/");
+    WORLDBOX("https://worldbox.pl/products/"),
+    TESTCASE("WRONGLINK");
 
     private String linkPrefix;
 
